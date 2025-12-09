@@ -10,8 +10,10 @@ const cors = require('cors');
 
 dotenv.config();
 
+
 const app = express();
 const port = process.env.PORT || 8000;
+
 
 // Conexión a MySQL
 const connection = mysql.createPool({
@@ -21,6 +23,8 @@ const connection = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
+
+
 app.get("/", (req, res) => {
   res.send("Servidor Archivo Digital");
   res.setHeader("Access-Control-Allow-Origin", "*")
@@ -28,7 +32,6 @@ app.get("/", (req, res) => {
   res.setHeader("Access-Control-Max-Age", "1800");
   res.setHeader("Access-Control-Allow-Headers", "content-type");
   res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
-
 });
 
 
